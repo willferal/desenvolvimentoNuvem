@@ -3,7 +3,7 @@ const app = express();
 
   app.get("/", function(req,res){
     console.log(__dirname)
-    res.sendFile(__dirname + "/inicio.html");
+    res.sendFile(__dirname + "/login.html");
   });
 
   app.get("/tvs",function(req,res){
@@ -18,7 +18,7 @@ const app = express();
 
   app.get("/moda",function(req,res){
     console.log(__dirname)
-    res .sendFile(__dirname + "/tv.html")
+    res .sendFile(__dirname + "/moda.html")
   });
 
   app.get("/carrinho",function(req,res){
@@ -35,6 +35,17 @@ const app = express();
     console.log(__dirname)
     res .sendFile(__dirname + "/suporte.html")
   });
+
+  app.get("/inicio",function(req,res){
+    console.log(__dirname)
+    res .sendFile(__dirname + "/inicio.html")
+  });
+
+  app.get("/tv",function(req,res){
+    console.log(__dirname)
+    res .sendFile(__dirname + "/tv.html")
+  });
+
 
   app.listen(8081,function(){console.log("servidor rodando");});
 

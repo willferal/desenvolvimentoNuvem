@@ -2,14 +2,14 @@
   "version": 2,
   "builds": [
     {
-      "src": "./mercadoFechado.js",
+      "src": "/mercadoFechado.js",
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/"
+      "dest": "/mercadoFechado.js"
     }
   ]
 }

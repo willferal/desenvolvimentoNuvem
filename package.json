@@ -13,6 +13,7 @@
   "scripts": {
     "vercel": "vercel",
     "dev": "nodemon mercadoFechado.js",
+    "start": "node mercadoFechado.js",
     "prettier": "prettier --write ."
   },
   "repository": {

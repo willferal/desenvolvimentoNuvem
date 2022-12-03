@@ -1,6 +1,5 @@
 const express = require("express");
 const app = express();
-const path = require("path");
 const { upRender } = require("./utils/functions");
 
 app.get("/", function (req, res) {

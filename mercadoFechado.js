@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
-const { upRender } = require("./utils/functions");
+const { upRender, sedex } = require("./utils/functions");
+app.use(express.urlencoded({ extended: false }));
 
 app.get("/", function (req, res) {
   res.sendFile(upRender("login"));
@@ -47,6 +48,17 @@ app.get("/tvs/:marca", function (req, res) {
       );
       break;
   }
+});
+app.get("/cep", function (req, res) {
+  res.sendFile(upRender("endereco"));
+});
+app.post("/cep", async function (req, res) {
+  let cep = req.body.cep;
+  const address = await sedex(cep);
+  if (!address) {
+    return res.send("não encontrado");
+  }
+  res.send(address.data);
 });
 
 app.listen(8081, function () {

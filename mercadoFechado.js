@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const { upRender, sedex } = require("./utils/functions");
 app.use(express.urlencoded({ extended: false }));
+app.set("view engine", "ejs");
 
 app.get("/", function (req, res) {
   res.sendFile(upRender("login"));
@@ -49,16 +50,25 @@ app.get("/tvs/:marca", function (req, res) {
       break;
   }
 });
+
 app.get("/cep", function (req, res) {
   res.sendFile(upRender("endereco"));
 });
+
 app.post("/cep", async function (req, res) {
   let cep = req.body.cep;
   const address = await sedex(cep);
   if (!address) {
     return res.send("não encontrado");
   }
-  res.send(address.data);
+
+  res.render("mostrar", {
+    address: address.data,
+  });
+});
+
+app.get("/teste", function (req, res) {
+  res.render("teste", { testando: 1000 });
 });
 
 app.listen(8081, function () {

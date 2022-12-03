@@ -7,10 +7,9 @@ module.exports = {
   async sedex(cep) {
     try {
       const address = await consultarCep(cep);
+      return address;
     } catch (error) {
       return false;
     }
-
-    return address;
   },
 };

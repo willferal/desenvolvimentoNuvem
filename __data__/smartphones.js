@@ -4,7 +4,8 @@ module.exports = [
     model: "samsung",
     description: "Descricao do produto.",
     name: "Iphone",
-    imageUrl: 'https://images-americanas.b2w.io/produtos/01/00/img/4422240/1/4422240135_1SZ.jpg',
+    imageUrl:
+      "https://images-americanas.b2w.io/produtos/01/00/img/4422240/1/4422240135_1SZ.jpg",
   },
 
   {
@@ -12,7 +13,8 @@ module.exports = [
     model: "samsung",
     description: "Descricao do produto.",
     name: "Iphone",
-    imageUrl: 'https://images-americanas.b2w.io/produtos/01/00/img/4422240/1/4422240135_1SZ.jpg',
+    imageUrl:
+      "https://images-americanas.b2w.io/produtos/01/00/img/4422240/1/4422240135_1SZ.jpg",
   },
 
   {
@@ -20,7 +22,8 @@ module.exports = [
     model: "samsung",
     description: "Descricao do produto.",
     name: "Iphone",
-    imageUrl: 'https://images-americanas.b2w.io/produtos/01/00/img/4422240/1/4422240135_1SZ.jpg',
+    imageUrl:
+      "https://images-americanas.b2w.io/produtos/01/00/img/4422240/1/4422240135_1SZ.jpg",
   },
 
   {
@@ -28,6 +31,7 @@ module.exports = [
     model: "samsung",
     description: "Descricao do produto.",
     name: "Iphone",
-    imageUrl: 'https://images-americanas.b2w.io/produtos/01/00/img/4422240/1/4422240135_1SZ.jpg',
+    imageUrl:
+      "https://images-americanas.b2w.io/produtos/01/00/img/4422240/1/4422240135_1SZ.jpg",
   },
 ];

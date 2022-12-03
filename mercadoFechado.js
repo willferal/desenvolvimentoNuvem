@@ -1,19 +1,21 @@
 const express = require("express");
+const path = require("path");
 const expressLayouts = require("express-ejs-layouts");
 const app = express();
 const { upRender, sedex } = require("./utils/functions");
-const smartphones = require("./__data__/smartphones")
+const smartphones = require("./__data__/smartphones");
 
 app.use(express.urlencoded({ extended: false }));
 app.use(expressLayouts);
 app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
 
 app.get("/", function (req, res) {
   res.sendFile(upRender("login"));
 });
 
 app.get("/smartphones", function (req, res) {
-  res.render("smartphones", {smartphones});
+  res.render("smartphones", { smartphones });
 });
 
 app.get("/moda", function (req, res) {

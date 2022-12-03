@@ -1,9 +1,11 @@
 const express = require("express");
+const expressLayouts = require("express-ejs-layouts");
 const app = express();
 const { upRender, sedex } = require("./utils/functions");
 const smartphones = require("./__data__/smartphones")
 
 app.use(express.urlencoded({ extended: false }));
+app.use(expressLayouts);
 app.set("view engine", "ejs");
 
 app.get("/", function (req, res) {

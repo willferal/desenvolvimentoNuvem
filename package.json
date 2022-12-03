@@ -6,9 +6,14 @@
   "name": "desenvolvimentonuvem",
   "version": "1.0.0",
   "main": "mercadoFechado.js",
-  "devDependencies": {},
+  "devDependencies": {
+    "nodemon": "^2.0.20",
+    "prettier": "^2.8.0"
+  },
   "scripts": {
-    "vercel": "vercel"
+    "vercel": "vercel",
+    "dev": "nodemon mercadoFechado.js",
+    "prettier": "prettier --write ."
   },
   "repository": {
     "type": "git",

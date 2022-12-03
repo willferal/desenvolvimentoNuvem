@@ -1,10 +1,7 @@
 const express = require("express");
 const app = express();
 const path = require("path");
-
-function upRender(fileName) {
-  return path.join(__dirname, "views", fileName + ".html");
-}
+const { upRender } = require("./utils/functions");
 
 app.get("/", function (req, res) {
   res.sendFile(upRender("login"));

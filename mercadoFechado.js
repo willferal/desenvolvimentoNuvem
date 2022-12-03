@@ -1,6 +1,8 @@
 const express = require("express");
 const app = express();
 const { upRender, sedex } = require("./utils/functions");
+const smartphones = require("./__data__/smartphones")
+
 app.use(express.urlencoded({ extended: false }));
 app.set("view engine", "ejs");
 
@@ -9,7 +11,7 @@ app.get("/", function (req, res) {
 });
 
 app.get("/smartphones", function (req, res) {
-  res.sendFile(upRender("smartphones"));
+  res.render("smartphones", {smartphones});
 });
 
 app.get("/moda", function (req, res) {

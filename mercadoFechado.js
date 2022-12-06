@@ -15,7 +15,7 @@ app.get("/", function (req, res) {
 });
 
 app.get("/smartphones", function (req, res) {
-  res.render("smartphones", { smartphones });
+  res.render("smartphones", {smartphones});
 });
 
 app.get("/moda", function (req, res) {

@@ -30,7 +30,7 @@ module.exports = [
     price: 4910.0,
     model: "iPhone",
     description: "Apple iPhone 13 5G 128GB - Preto",
-    name: "Iphone 13",
+    name: "iPhone 13",
     imageUrl:
       "https://images-americanas.b2w.io/produtos/01/00/img/4864625/5/4864625500_1SZ.jpg",
   },

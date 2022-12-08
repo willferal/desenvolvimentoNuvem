@@ -4,6 +4,8 @@ const expressLayouts = require("express-ejs-layouts");
 const app = express();
 const { upRender, sedex } = require("./utils/functions");
 const smartphones = require("./__data__/smartphones");
+const moda = require("./__data__/moda")
+const tvs = require("./__data__/tvs")
 
 app.use(express.urlencoded({ extended: false }));
 app.use(expressLayouts);
@@ -19,7 +21,7 @@ app.get("/smartphones", function (req, res) {
 });
 
 app.get("/moda", function (req, res) {
-  res.sendFile(upRender("moda"));
+  res.render("moda", {moda});
 });
 
 app.get("/carrinho", function (req, res) {
@@ -39,7 +41,7 @@ app.get("/inicio", function (req, res) {
 });
 
 app.get("/tvs", function (req, res) {
-  res.sendFile(upRender("tvs"));
+  res.render("tvs", {tvs});
 });
 
 app.get("/tvs/:marca", function (req, res) {

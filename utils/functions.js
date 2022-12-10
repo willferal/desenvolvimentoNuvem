@@ -12,4 +12,14 @@ module.exports = {
       return false;
     }
   },
+  async calcularFrete(cep) {
+    try {
+      const address = await consultarCep(cep);
+      console.log(address);
+      return address.data;
+    } catch (error) {
+      return false;
+    }
+  },
+
 };

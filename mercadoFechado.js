@@ -2,7 +2,7 @@ const express = require("express");
 const path = require("path");
 const expressLayouts = require("express-ejs-layouts");
 const app = express();
-const { upRender, sedex } = require("./utils/functions");
+const { upRender, sedex, calcularFrete } = require("./utils/functions");
 const smartphones = require("./__data__/smartphones");
 const moda = require("./__data__/moda")
 const tvs = require("./__data__/tvs")
@@ -16,17 +16,40 @@ app.get("/", function (req, res) {
   res.sendFile(upRender("login"));
 });
 
-app.get("/smartphones", function (req, res) {
-  res.render("smartphones", {smartphones});
+app.get("/categoria/:categoria", function (req, res) {
+  const categoria = req.params.categoria;
+  if(categoria == "smartphones"){
+    res.render("smartphones", {smartphones});
+  }else if(categoria == "moda"){
+    res.render("moda", {moda});
+  }else if(categoria == "tvs"){
+    res.render("tvs", {tvs});
+  }else{
+    res.redirect("/")
+  }
 });
 
-app.get("/moda", function (req, res) {
-  res.render("moda", {moda});
-});
 
 app.get("/carrinho", function (req, res) {
   res.sendFile(upRender("carrinho"));
 });
+
+app.get("/frete", function (req, res) {
+  res.render("frete");
+});
+
+app.post("/frete", async function (req, res) {
+  let { cep }  = req.body
+
+  const address = await calcularFrete(cep);
+
+  let frete = {
+    msg: address.logradouro
+  }
+
+  res.send(address);
+});
+
 
 app.get("/ofertas", function (req, res) {
   res.sendFile(upRender("paginaOfertas"));
@@ -38,10 +61,6 @@ app.get("/suporte", function (req, res) {
 
 app.get("/inicio", function (req, res) {
   res.sendFile(upRender("inicio"));
-});
-
-app.get("/tvs", function (req, res) {
-  res.render("tvs", {tvs});
 });
 
 app.get("/tvs/:marca", function (req, res) {
@@ -79,7 +98,7 @@ app.get("/teste", function (req, res) {
   res.render("teste", { testando: 1000 });
 });
 
-app.listen(8081, function () {
+app.listen(8084, function () {
   console.log("servidor rodando");
 });
 

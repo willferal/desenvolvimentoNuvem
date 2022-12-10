@@ -3,9 +3,9 @@ const path = require("path");
 const expressLayouts = require("express-ejs-layouts");
 const app = express();
 const { upRender, sedex, calcularFrete } = require("./utils/functions");
-const smartphones = require("./__data__/smartphones");
-const moda = require("./__data__/moda")
-const tvs = require("./__data__/tvs")
+let smartphones = require("./__data__/smartphones");
+let moda = require("./__data__/moda")
+let tvs = require("./__data__/tvs")
 
 app.use(express.urlencoded({ extended: false }));
 app.use(expressLayouts);
@@ -18,13 +18,13 @@ app.get("/", function (req, res) {
 
 app.get("/categoria/:categoria", function (req, res) {
   const categoria = req.params.categoria;
-  if(categoria == "smartphones"){
-    res.render("smartphones", {smartphones});
-  }else if(categoria == "moda"){
-    res.render("moda", {moda});
-  }else if(categoria == "tvs"){
-    res.render("tvs", {tvs});
-  }else{
+  if (categoria == "smartphones") {
+    res.render("smartphones", { smartphones });
+  } else if (categoria == "moda") {
+    res.render("moda", { moda });
+  } else if (categoria == "tvs") {
+    res.render("tvs", { tvs });
+  } else {
     res.redirect("/")
   }
 });
@@ -35,36 +35,57 @@ app.get("/smartphones/criar", function (req, res) {
 
 app.get("/smartphones/editar/:id", function (req, res) {
   const id = req.params.id;
+  const smartphone = smartphones.find(function (cel) {
+    return cel.id == id;
+  });
+  res.render("editSmartphones", { smartphone });
+})
+
+app.get("/smartphones/deletar/:id", function (req, res) {
+  const id = req.params.id;
   const smartphone = smartphones.find(function(cel){
     return cel.id == id;
   });
-  res.render("editSmartphones", {smartphone});
+  res.render("deleteSmartphones", {smartphone});
 })
 
 app.post("/smartphones/criar", function (req, res) {
-  
-  const {model, price, description, name, imageUrl} = req.body;
-  
+
+  const { model, price, description, name, imageUrl } = req.body;
+
   const newSmartphone = {
     id: smartphones.length,
-    model, price, description, name, imageUrl};
+    model, price, description, name, imageUrl
+  };
   smartphones.push(newSmartphone);
-    res.redirect("/categoria/smartphones");
+  res.redirect("/categoria/smartphones");
 })
 
 app.post("/smartphones/editar/:id", function (req, res) {
   const id = req.params.id;
-  const {model, price, description, name, imageUrl} = req.body;
-  
+  const { model, price, description, name, imageUrl } = req.body;
+
   const newSmartphone = {
     id,
-    model, price:Number(price), description, name, imageUrl};
-  smartphones.forEach(function(cel, index){
-    if(cel.id == id){
+    model, price: Number(price), description, name, imageUrl
+  };
+  smartphones.forEach(function (cel, index) {
+    if (cel.id == id) {
       smartphones[index] = newSmartphone;
     }
   });
-    res.redirect("/categoria/smartphones");
+  res.redirect("/categoria/smartphones");
+})
+
+app.post("/smartphones/deletar/:id", function (req, res) {
+  const id = req.params.id;
+  
+  smartphones = smartphones.filter(
+    function(cel){
+      return cel.id != id;
+    }
+  )
+  res.redirect("/categoria/smartphones");
 })
 
 app.get("/carrinho", function (req, res) {
@@ -76,7 +97,7 @@ app.get("/frete", function (req, res) {
 });
 
 app.post("/frete", async function (req, res) {
-  let { cep }  = req.body
+  let { cep } = req.body
 
   const address = await calcularFrete(cep);
 

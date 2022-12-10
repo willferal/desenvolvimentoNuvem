@@ -1,5 +1,6 @@
 module.exports = [
   {
+    id: 0,
     price: 65.0,
     model: "Blusa",
     description: "Multicolorido Carta ocasional Camisetas & Tanques- Menino.",
@@ -9,6 +10,7 @@ module.exports = [
   },
 
   {
+    id:1,
     price: 57.0,
     model: "Moletom",
     description:
@@ -19,6 +21,7 @@ module.exports = [
   },
 
   {
+    id:2,
     price: 49.0,
     model: "Blusa ",
     description:
@@ -29,6 +32,7 @@ module.exports = [
   },
 
   {
+    id: 3,
     price: 75.0,
     model: "short",
     description: "shorts tactel masculino liso.",

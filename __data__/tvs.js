@@ -1,5 +1,6 @@
 module.exports = [
   {
+    id: 0,
     price: 949.0,
     model: "HQ",
     description:
@@ -10,6 +11,7 @@ module.exports = [
   },
 
   {
+    id: 1,
     price: 2200.0,
     model: "TCL",
     description:
@@ -20,6 +22,7 @@ module.exports = [
   },
 
   {
+    id: 2,
     price: 2600.0,
     model: "Aiwa ",
     description:
@@ -30,6 +33,7 @@ module.exports = [
   },
 
   {
+    id: 3,
     price: 1650.0,
     model: "AOC",
     description:

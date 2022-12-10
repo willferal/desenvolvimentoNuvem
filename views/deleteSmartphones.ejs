@@ -1,0 +1,32 @@
+<%- contentFor("body") %>
+  <div class="container marketing mt-5">
+    <div class="row">
+      <div class="col-lg-4">
+
+
+        <h2 class="fw-normal">Deletar smartphone</h2>
+
+        <form action="/smartphones/deletar/<%= smartphone.id %>" method="post">
+        <label for="model">Modelo:</label>
+        <input type="text" readonly name="model" value="<%= smartphone.model %>">
+
+        <label for="price">Preço:</label>
+        <input type="text" readonly name="price" value="<%= smartphone.price %>">
+
+        <label for="name">Nome:</label>
+        <input type="text" readonly name="name" value="<%= smartphone.name %>">
+
+        <label for="description">Descrição:</label>
+        <input type="text" readonly name="description" value="<%= smartphone.description %>">
+
+        <label for="imageUrl">Imagem:</label>
+        <input type="text" readonly name="imageUrl" value="<%= smartphone.imageUrl %>">
+        <p>voce tem certeza que deseja apagar este produto ?</p>
+        <input type="submit" value="enviar">
+          
+        
+        </form>
+        <p>
+        </p>
+      </div>
+    </div>

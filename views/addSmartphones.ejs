@@ -1,0 +1,30 @@
+<%- contentFor("body") %>
+  <div class="container marketing mt-5">
+    <div class="row">
+      <div class="col-lg-4">
+
+
+        <h2 class="fw-normal">Adicionar smartphone</h2>
+
+        <form action="/smartphones/criar" method="post">
+        <label for="model">Modelo:</label>
+        <input type="text" name="model">
+
+        <label for="price">Preço:</label>
+        <input type="text" name="price">
+
+        <label for="name">Nome:</label>
+        <input type="text" name="name">
+
+        <label for="description">Descrição:</label>
+        <input type="text" name="description">
+
+        <label for="imgUrl">Imagem:</label>
+        <input type="text" name="imgUrl">
+        <input type="submit" value="enviar">
+          
+        </form>
+        <p>
+        </p>
+      </div>
+    </div>

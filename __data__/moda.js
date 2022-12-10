@@ -11,7 +11,8 @@ module.exports = [
   {
     price: 57.0,
     model: "Moletom",
-    description: "Moletom com capuz e moletom com letras gráficas para meninos.",
+    description:
+      "Moletom com capuz e moletom com letras gráficas para meninos.",
     imageUrl:
       "https://img.ltwebstatic.com/images3_pi/2021/08/28/1630133534df8c1af91b76de16809d093a2b2b322c.webp",
     name: "Moletom para crianças",
@@ -20,7 +21,8 @@ module.exports = [
   {
     price: 49.0,
     model: "Blusa ",
-    description: "Descricao do produtoMulticolorido Bloco de cores ocasional Camisetas & Tanques- Menino.",
+    description:
+      "Descricao do produtoMulticolorido Bloco de cores ocasional Camisetas & Tanques- Menino.",
     imageUrl:
       "https://img.ltwebstatic.com/images3_pi/2020/04/27/1587950545d7616c7b44278f954464e3d07042415c_thumbnail_600x.webp",
     name: "Blusa Masculina",

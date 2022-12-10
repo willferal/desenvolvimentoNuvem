@@ -4,8 +4,8 @@ const expressLayouts = require("express-ejs-layouts");
 const app = express();
 const { upRender, sedex, calcularFrete } = require("./utils/functions");
 const smartphones = require("./__data__/smartphones");
-const moda = require("./__data__/moda")
-const tvs = require("./__data__/tvs")
+const moda = require("./__data__/moda");
+const tvs = require("./__data__/tvs");
 
 app.use(express.urlencoded({ extended: false }));
 app.use(expressLayouts);
@@ -18,17 +18,27 @@ app.get("/", function (req, res) {
 
 app.get("/categoria/:categoria", function (req, res) {
   const categoria = req.params.categoria;
-  if(categoria == "smartphones"){
-    res.render("smartphones", {smartphones});
-  }else if(categoria == "moda"){
-    res.render("moda", {moda});
-  }else if(categoria == "tvs"){
-    res.render("tvs", {tvs});
-  }else{
-    res.redirect("/")
+  if (categoria == "smartphones") {
+    res.render("smartphones", { smartphones });
+  } else if (categoria == "moda") {
+    res.render("moda", { moda });
+  } else if (categoria == "tvs") {
+    res.render("tvs", { tvs });
+  } else {
+    res.redirect("/");
   }
 });
 
+app.get("/smartphones/criar", function (req, res) {
+  res.render("addSmartphones");
+});
+
+app.post("/smartphones/criar", function (req, res) {
+  const { model, price, description, name, imgUrl } = req.body;
+  const newSmartphone = { model, price, description, name, imgUrl };
+  smartphones.push(newSmartphone);
+  res.redirect("/categoria/smartphones");
+});
 
 app.get("/carrinho", function (req, res) {
   res.sendFile(upRender("carrinho"));
@@ -39,17 +49,16 @@ app.get("/frete", function (req, res) {
 });
 
 app.post("/frete", async function (req, res) {
-  let { cep }  = req.body
+  let { cep } = req.body;
 
   const address = await calcularFrete(cep);
 
   let frete = {
-    msg: address.logradouro
-  }
+    msg: address.logradouro,
+  };
 
   res.send(address);
 });
-
 
 app.get("/ofertas", function (req, res) {
   res.sendFile(upRender("paginaOfertas"));

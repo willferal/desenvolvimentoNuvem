@@ -1,5 +1,6 @@
 module.exports = [
   {
+    id: 0,
     price: 629.0,
     model: "samsung",
     description:
@@ -10,6 +11,7 @@ module.exports = [
   },
 
   {
+    id: 1,
     price: 1299.0,
     model: "samsung",
     description:
@@ -20,6 +22,7 @@ module.exports = [
   },
 
   {
+    id: 2,
     price: 3200.0,
     model: "iphone",
     description: "iPhone 11 Apple (64GB) Preto Tela 6,1'' 4G Câmera 12MP iOS",
@@ -29,6 +32,7 @@ module.exports = [
   },
 
   {
+    id: 3,
     price: 4910.0,
     model: "iPhone",
     description: "Apple iPhone 13 5G 128GB - Preto",

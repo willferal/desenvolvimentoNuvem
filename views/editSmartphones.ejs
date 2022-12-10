@@ -6,21 +6,21 @@
 
         <h2 class="fw-normal">Adicionar smartphone</h2>
 
-        <form action="/smartphones/criar" method="post">
+        <form action="/smartphones/editar/<%= smartphone.id %>" method="post">
         <label for="model">Modelo:</label>
-        <input type="text" name="model">
+        <input type="text" name="model" value="<%= smartphone.model %>">
 
         <label for="price">Preço:</label>
-        <input type="text" name="price">
+        <input type="text" name="price" value="<%= smartphone.price %>">
 
         <label for="name">Nome:</label>
-        <input type="text" name="name">
+        <input type="text" name="name" value="<%= smartphone.name %>">
 
         <label for="description">Descrição:</label>
-        <input type="text" name="description">
+        <input type="text" name="description" value="<%= smartphone.description %>">
 
         <label for="imageUrl">Imagem:</label>
-        <input type="text" name="imageUrl">
+        <input type="text" name="imageUrl" value="<%= smartphone.imageUrl %>">
         <input type="submit" value="enviar">
           
         </form>
